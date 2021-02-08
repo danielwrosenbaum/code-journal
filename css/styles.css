@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+.form {
+  margin-bottom: 5%;
+}
+
+.pic {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.box {
+  margin-bottom: 25px;
+}
+
+.entry-titles {
+  margin-bottom: 15px;
+}
+
+input.image,
+input.title {
+  height: 40px;
+}
+
+input.notes {
+  height: 100px;
+}
+
+.right {
+  position: relative;
+  left: 90%;
+}
+
+.save-button {
+  padding: 5px 10px 5px 10px;
+}
