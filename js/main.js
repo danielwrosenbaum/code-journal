@@ -3,7 +3,7 @@
 var $changeUrl = document.querySelector('input.image');
 var $photoUrl = document.querySelector('img.pic');
 var $formVar = document.querySelector('.form');
-var inputValues = document.querySelectorAll('input');
+// var inputValues = document.querySelectorAll('input');
 
 function addUrl(event) {
   $photoUrl.src = event.target.value;
@@ -11,14 +11,17 @@ function addUrl(event) {
 $changeUrl.addEventListener('input', addUrl);
 
 function theSubmit(event) {
+  event.preventDefault();
+  var notesVal = $formVar.elements.notes.value;
+  var titleVal = $formVar.elements.title.value;
   var $submitObj = {};
-  $submitObj.value = event.target.value;
-  $submitObj.name = event.target.name;
+  $submitObj.notes = notesVal;
+  $submitObj.title = titleVal;
   $submitObj.id = data.nextEntryId;
-  localStorage.setItem($submitObj.name, $submitObj.value);
-  data.nextEntryId++;
+  // console.log('msg data: ', $submitObj);
   data.entries.unshift($submitObj);
-  $photoUrl.src = '';
-  inputValues.value = '';
+  data.nextEntryId++;
+  $formVar.reset();
 }
+
 $formVar.addEventListener('submit', theSubmit);

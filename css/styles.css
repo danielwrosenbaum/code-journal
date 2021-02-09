@@ -38,8 +38,9 @@ input.title {
   color: #c17c74;
 }
 
-input.notes {
+.notes {
   height: 100px;
+  padding: 10px;
 }
 
 .right {
