@@ -26,9 +26,8 @@ function theSubmit(event) {
 }
 
 $formVar.addEventListener('submit', theSubmit);
-
+var journalEntry = document.querySelector('.listEntries');
 function journalReturn(object) {
-  var journalEntry = document.querySelector('.listEntries');
   var newListItem = document.createElement('li');
   newListItem.className = 'newEntry row';
   journalEntry.appendChild(newListItem);
@@ -38,17 +37,26 @@ function journalReturn(object) {
   var newImage = document.createElement('img');
   divColumn.appendChild(newImage);
   newImage.className = 'entry-pic';
-  newImage.setAttribute('src', object.imageURL);
+  newImage.setAttribute('src', data.entries[0].imageURL);
   var divColumn2 = document.createElement('div');
   newListItem.appendChild(divColumn2);
   divColumn2.className = 'column-half';
   var newTitle = document.createElement('h3');
   divColumn2.appendChild(newTitle);
   newTitle.className = 'titles';
-  newTitle.textContent = object.title;
+  newTitle.textContent = data.entries[0].title;
   var newNotes = document.createElement('p');
   divColumn2.appendChild(newNotes);
   newNotes.className = 'entry-notes';
-  newNotes.textContent = object.notes;
+  newNotes.textContent = data.entries[0].notes;
   return journalEntry;
 }
+
+var theList = document.querySelector('.listEntries');
+document.addEventListener('DOMContentLoaded', function (event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    var newListEntries = journalReturn(data.entries[i]);
+    theList.appendChild(newListEntries);
+
+  }
+});
