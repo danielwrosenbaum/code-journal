@@ -26,6 +26,7 @@ function theSubmit(event) {
   data.nextEntryId++;
   $photoUrl.src = 'images/placeholder-image-square.jpg';
   $formVar.reset();
+  location.assign('#entry');
 }
 $formVar.addEventListener('submit', theSubmit);
 
