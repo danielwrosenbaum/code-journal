@@ -12,7 +12,6 @@ $changeUrl.addEventListener('input', addUrl);
 
 function theSubmit(event) {
   event.preventDefault();
-  var i = 0;
   var notesVal = $formVar.elements.notes.value;
   var titleVal = $formVar.elements.title.value;
   var picVal = $formVar.elements.imageURL.value;
@@ -22,7 +21,7 @@ function theSubmit(event) {
   $submitObj.title = titleVal;
   $submitObj.id = data.nextEntryId;
   data.entries.unshift($submitObj);
-  var newListEntries = journalReturn(data.entries[i]);
+  var newListEntries = journalReturn($submitObj);
   theList.prepend(newListEntries);
   data.nextEntryId++;
   $photoUrl.src = 'images/placeholder-image-square.jpg';
