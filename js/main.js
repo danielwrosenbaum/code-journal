@@ -33,7 +33,7 @@ $formVar.addEventListener('submit', theSubmit);
 function journalReturn(data) {
   var newListItem = document.createElement('li');
   newListItem.className = 'newEntry row';
-  theList.appendChild(newListItem);
+  theList.prepend(newListItem);
   var divColumn = document.createElement('div');
   newListItem.appendChild(divColumn);
   divColumn.className = 'column-half';
@@ -58,6 +58,6 @@ function journalReturn(data) {
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     var newListEntries = journalReturn(data.entries[i]);
-    theList.prepend(newListEntries);
+    theList.append(newListEntries);
   }
 });
