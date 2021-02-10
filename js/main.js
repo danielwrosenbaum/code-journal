@@ -4,6 +4,7 @@ var $changeUrl = document.querySelector('input.image');
 var $photoUrl = document.querySelector('img.pic');
 var $formVar = document.querySelector('.form');
 var theList = document.querySelector('.listEntries');
+var newButton = document.querySelector('.new-button');
 
 function addUrl(event) {
   $photoUrl.src = event.target.value;
@@ -55,7 +56,9 @@ function journalReturn(data) {
   newNotes.textContent = data.notes;
   return newListItem;
 }
-
+newButton.addEventListener('click', function (event) {
+  location.assign('#newEntry');
+});
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     var newListEntries = journalReturn(data.entries[i]);
