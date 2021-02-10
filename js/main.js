@@ -27,7 +27,7 @@ function theSubmit(event) {
 
 $formVar.addEventListener('submit', theSubmit);
 var journalEntry = document.querySelector('.listEntries');
-function journalReturn(object) {
+function journalReturn(data) {
   var newListItem = document.createElement('li');
   newListItem.className = 'newEntry row';
   journalEntry.appendChild(newListItem);
@@ -53,9 +53,9 @@ function journalReturn(object) {
 }
 
 var theList = document.querySelector('.listEntries');
-document.addEventListener('DOMContentLoaded', function (event) {
+$formVar.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
-    var newListEntries = journalReturn(data.entries[i]);
+    var newListEntries = journalReturn(data);
     theList.appendChild(newListEntries);
 
   }
