@@ -17,8 +17,12 @@
 </head>
 
 <body>
-  <header>
-    <h3 class="container row">Code Journal</h3>
+  <header class="container row header">
+    <h3>Code Journal</h3>
+    <nav class="nav-bar">
+      <a href="#entries" class="nav-item">Entries</a>
+
+    </nav>
   </header>
   <main>
     <div data-view="entry-form" class="container">
@@ -63,35 +67,10 @@
       </form>
     </div>
     <div data-view="entries" class="container">
+      <h2>Entries</h2>
       <ul class="column-full listEntries">
-        <h2>Entries</h2>
-        <li class="newEntry row">
-            <div class="column-half">
-              <img class="entry-pic" src="images/placeholder-image-square.jpg" alt="unknown">
-            </div>
-            <div class="column-half">
-              <h3 class="titles">Sample Title</h3>
-              <p class="entry-notes">Notes</p>
-            </div>
-        </li>
-        <li class="newEntry row">
-            <div class="column-half">
-              <img class="entry-pic" src="images/placeholder-image-square.jpg" alt="unknown">
-            </div>
-            <div class="column-half">
-              <h3>Sample Title</h3>
-              <p>Notes</p>
-            </div>
-        </li>
-        <li class="newEntry row">
-            <div class="column-half">
-              <img class="entry-pic" src="images/placeholder-image-square.jpg" alt="unknown">
-            </div>
-            <div class="column-half">
-              <h3>Sample Title</h3>
-              <p>Notes</p>
-            </div>
-        </li>
+
+
       </ul>
     </div>
   </main>
