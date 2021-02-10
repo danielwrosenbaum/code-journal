@@ -9,6 +9,10 @@ header {
   padding: 20px;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .form {
   margin-bottom: 5%;
   color: #2a3d45;
@@ -19,6 +23,16 @@ header {
   width: 100%;
   margin-bottom: 40px;
   border-radius: 5%;
+}
+
+.entry-pic {
+  width: 100%;
+  margin-bottom: 40px;
+  border-radius: 5%;
+}
+
+.entries-list {
+  margin-top: 25px;
 }
 
 .box {
