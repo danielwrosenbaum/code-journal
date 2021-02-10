@@ -31,7 +31,7 @@ ul {
   border-radius: 5%;
 }
 
-.entries-list {
+.entry {
   margin-top: 25px;
 }
 
@@ -39,7 +39,7 @@ ul {
   margin-bottom: 25px;
 }
 
-.entry-titles {
+.titles {
   margin-bottom: 15px;
 }
 

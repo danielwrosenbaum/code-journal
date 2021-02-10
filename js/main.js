@@ -26,3 +26,29 @@ function theSubmit(event) {
 }
 
 $formVar.addEventListener('submit', theSubmit);
+
+function journalReturn(object) {
+  var journalEntry = document.querySelector('.listEntries');
+  var newListItem = document.createElement('li');
+  newListItem.className = 'newEntry row';
+  journalEntry.appendChild(newListItem);
+  var divColumn = document.createElement('div');
+  newListItem.appendChild(divColumn);
+  divColumn.className = 'column-half';
+  var newImage = document.createElement('img');
+  divColumn.appendChild(newImage);
+  newImage.className = 'entry-pic';
+  newImage.setAttribute('src', object.imageURL);
+  var divColumn2 = document.createElement('div');
+  newListItem.appendChild(divColumn2);
+  divColumn2.className = 'column-half';
+  var newTitle = document.createElement('h3');
+  divColumn2.appendChild(newTitle);
+  newTitle.className = 'titles';
+  newTitle.textContent = object.title;
+  var newNotes = document.createElement('p');
+  divColumn2.appendChild(newNotes);
+  newNotes.className = 'entry-notes';
+  newNotes.textContent = object.notes;
+  return journalEntry;
+}
