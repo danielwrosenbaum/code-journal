@@ -19,7 +19,6 @@ function theSubmit(event) {
   $submitObj.notes = notesVal;
   $submitObj.title = titleVal;
   $submitObj.id = data.nextEntryId;
-  // console.log('msg data: ', $submitObj);
   data.entries.unshift($submitObj);
   data.nextEntryId++;
   $photoUrl.src = 'images/placeholder-image-square.jpg';
