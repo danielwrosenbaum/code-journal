@@ -41,10 +41,6 @@ ul {
   border-radius: 5%;
 }
 
-.entry {
-  margin-top: 125px;
-}
-
 .box {
   margin-bottom: 25px;
 }
@@ -123,4 +119,8 @@ textarea:hover {
   color: #c17c74;
   box-shadow: 0 2px #7a6c5d;
   transform: translateY(4px);
+}
+
+.hidden {
+  display: none;
 }

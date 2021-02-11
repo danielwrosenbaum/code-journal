@@ -27,11 +27,11 @@ function theSubmit(event) {
   data.nextEntryId++;
   $photoUrl.src = 'images/placeholder-image-square.jpg';
   $formVar.reset();
+  $formVar.className = 'form hidden';
   location.assign('#entry');
 }
 $formVar.addEventListener('submit', theSubmit);
 
-// var journalEntry = document.querySelector('.listEntries');
 function journalReturn(data) {
   var newListItem = document.createElement('li');
   newListItem.className = 'newEntry row';
@@ -58,6 +58,7 @@ function journalReturn(data) {
 }
 newButton.addEventListener('click', function (event) {
   location.assign('#newEntry');
+  $formVar.className = 'form';
 });
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
