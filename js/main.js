@@ -79,3 +79,6 @@ window.addEventListener('DOMContentLoaded', function (event) {
     theList.append(newListEntries);
   }
 });
+
+theList.addEventListener('click', function (event) {
+});
