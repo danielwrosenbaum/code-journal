@@ -5,6 +5,7 @@ var $photoUrl = document.querySelector('img.pic');
 var $formVar = document.querySelector('.form');
 var theList = document.querySelector('.listEntries');
 var newButton = document.querySelector('.new-button');
+var entries = document.querySelector('.entry');
 
 function addUrl(event) {
   $photoUrl.src = event.target.value;
@@ -28,7 +29,7 @@ function theSubmit(event) {
   $photoUrl.src = 'images/placeholder-image-square.jpg';
   $formVar.reset();
   $formVar.className = 'form hidden';
-  location.assign('#entry');
+  entries.className = 'container entry';
 }
 $formVar.addEventListener('submit', theSubmit);
 
@@ -57,7 +58,7 @@ function journalReturn(data) {
   return newListItem;
 }
 newButton.addEventListener('click', function (event) {
-  location.assign('#newEntry');
+  entries.className = 'hidden';
   $formVar.className = 'form';
 });
 window.addEventListener('DOMContentLoaded', function (event) {
