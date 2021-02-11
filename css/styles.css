@@ -35,6 +35,10 @@ ul {
   border-radius: 5%;
 }
 
+.entry {
+  margin-bottom: 25px;
+}
+
 .entry-pic {
   width: 100%;
   margin-bottom: 40px;
@@ -106,8 +110,9 @@ textarea:hover {
   color: white;
   border-radius: 10%;
   border: 1px solid #ddc9b4;
-  position: relative;
-  left: 95%;
+  margin-bottom: 25px;
+  position: absolute;
+  left: 90%;
 }
 
 .new-button:hover {

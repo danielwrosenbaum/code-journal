@@ -7,6 +7,7 @@ var theList = document.querySelector('.listEntries');
 var newButton = document.querySelector('.new-button');
 var entries = document.querySelector('.entry');
 var cancelButton = document.querySelector('.cancel-button');
+var newEntrytitle = document.querySelector('.newEntry');
 
 function addUrl(event) {
   $photoUrl.src = event.target.value;
@@ -67,6 +68,7 @@ function journalReturn(data) {
   $editButton.addEventListener('click', function (event) {
     entries.className = 'hidden';
     $formVar.className = 'form';
+    newEntrytitle.textContent = 'Edit Entry';
     data.editing = data.id;
     $formVar.elements.notes.value = data.notes;
     $formVar.elements.title.value = data.title;
