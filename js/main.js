@@ -63,6 +63,11 @@ function journalReturn(data) {
   divColumn2.appendChild(newNotes);
   newNotes.className = 'entry-notes';
   newNotes.textContent = data.notes;
+  var $editButton = document.querySelector('.edit-button');
+  $editButton.addEventListener('click', function (event) {
+    entries.className = 'hidden';
+    $formVar.className = 'form';
+  });
   return newListItem;
 }
 newButton.addEventListener('click', function (event) {
@@ -81,4 +86,5 @@ window.addEventListener('DOMContentLoaded', function (event) {
 });
 
 theList.addEventListener('click', function (event) {
+
 });
