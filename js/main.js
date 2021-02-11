@@ -68,6 +68,10 @@ function journalReturn(data) {
     entries.className = 'hidden';
     $formVar.className = 'form';
     data.editing = data.id;
+    $formVar.elements.notes.value = data.notes;
+    $formVar.elements.title.value = data.title;
+    $formVar.elements.imageURL.value = data.imageURL;
+
   });
   return newListItem;
 }
