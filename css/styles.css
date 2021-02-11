@@ -106,7 +106,8 @@ textarea:hover {
   color: white;
   border-radius: 10%;
   border: 1px solid #ddc9b4;
-  float: right;
+  position: relative;
+  left: 95%;
 }
 
 .new-button:hover {
