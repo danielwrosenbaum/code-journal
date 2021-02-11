@@ -6,6 +6,7 @@ var $formVar = document.querySelector('.form');
 var theList = document.querySelector('.listEntries');
 var newButton = document.querySelector('.new-button');
 var entries = document.querySelector('.entry');
+var cancelButton = document.querySelector('.cancel-button');
 
 function addUrl(event) {
   $photoUrl.src = event.target.value;
@@ -60,6 +61,10 @@ function journalReturn(data) {
 newButton.addEventListener('click', function (event) {
   entries.className = 'hidden';
   $formVar.className = 'form';
+});
+cancelButton.addEventListener('click', function (event) {
+  $formVar.className = 'form hidden';
+  entries.className = 'container entry';
 });
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {

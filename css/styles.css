@@ -76,7 +76,7 @@ textarea:hover {
 
 .right {
   position: relative;
-  left: 90%;
+  left: 85%;
 }
 
 .save-button {
@@ -107,7 +107,7 @@ textarea:hover {
   border-radius: 10%;
   border: 1px solid #ddc9b4;
   position: relative;
-  left: 95%;
+  left: 93%;
 }
 
 .new-button:hover {
@@ -116,6 +116,25 @@ textarea:hover {
 }
 
 .new-button:active {
+  background-color: #fcf3ec;
+  color: #c17c74;
+  box-shadow: 0 2px #7a6c5d;
+  transform: translateY(4px);
+}
+
+.cancel-button {
+  background-color: white;
+  color: #c17c74;
+  border-radius: 15%;
+  border: 1px solid #7a6c5d;
+}
+
+.cancel-button:hover {
+  background-color: #fcf3ec;
+  color: #c17c74;
+}
+
+.cancel-button:active {
   background-color: #fcf3ec;
   color: #c17c74;
   box-shadow: 0 2px #7a6c5d;
