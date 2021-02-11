@@ -2,7 +2,8 @@
   display: none !important;
 }
 
-.container {
+.container,
+.nav-bar {
   max-width: 575px;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -19,7 +20,8 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .container,
+  .nav-bar {
     max-width: 900px;
   }
 

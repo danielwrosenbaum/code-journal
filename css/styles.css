@@ -6,12 +6,15 @@
 header {
   background-color: #2a3d45;
   color: white;
-  padding: 20px;
-  align-items: baseline;
 }
 
 ul {
   list-style-type: none;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: baseline;
 }
 
 .nav-item {
