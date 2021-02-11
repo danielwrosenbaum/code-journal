@@ -150,6 +150,7 @@ textarea:hover {
   left: 100%;
   background-color: white;
   border: none;
+  color: #2a3d45;
 }
 
 .edit-button:active {
