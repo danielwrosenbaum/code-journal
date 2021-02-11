@@ -67,6 +67,7 @@ function journalReturn(data) {
   $editButton.addEventListener('click', function (event) {
     entries.className = 'hidden';
     $formVar.className = 'form';
+    data.editing = data.id;
   });
   return newListItem;
 }
