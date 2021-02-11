@@ -16,6 +16,7 @@ $changeUrl.addEventListener('input', addUrl);
 
 function theSubmit(event) {
   event.preventDefault();
+  // if (data.editing !== null) {
   var notesVal = $formVar.elements.notes.value;
   var titleVal = $formVar.elements.title.value;
   var picVal = $formVar.elements.imageURL.value;
@@ -26,6 +27,7 @@ function theSubmit(event) {
   $submitObj.id = data.nextEntryId;
   data.entries.unshift($submitObj);
   var newListEntries = journalReturn($submitObj);
+
   theList.prepend(newListEntries);
   data.nextEntryId++;
   $photoUrl.src = 'images/placeholder-image-square.jpg';
@@ -34,9 +36,10 @@ function theSubmit(event) {
   entries.className = 'container entry';
 }
 $formVar.addEventListener('submit', theSubmit);
-
+var i = 0;
 function journalReturn(data) {
   var newListItem = document.createElement('li');
+  newListItem.setAttribute('data-entry-id', i);
   newListItem.className = 'newEntry row';
   theList.prepend(newListItem);
   var divColumn = document.createElement('div');
@@ -65,17 +68,19 @@ function journalReturn(data) {
   newNotes.className = 'entry-notes';
   newNotes.textContent = data.notes;
   var $editButton = document.querySelector('.edit-button');
-  $editButton.addEventListener('click', function (event) {
-    entries.className = 'hidden';
-    $formVar.className = 'form';
-    newEntrytitle.textContent = 'Edit Entry';
-    data.editing = data.id;
-    $formVar.elements.notes.value = data.notes;
-    $formVar.elements.title.value = data.title;
-    $formVar.elements.imageURL.value = data.imageURL;
-
-  });
+  $editButton.addEventListener('click', editFunction);
+  ++i;
   return newListItem;
+
+}
+function editFunction(event) {
+  entries.className = 'hidden';
+  $formVar.className = 'form';
+  newEntrytitle.textContent = 'Edit Entry';
+  data.editing = data.entries;
+  $formVar.elements.notes.value = data.editing.notes;
+  $formVar.elements.title.value = data.editing.title;
+  $formVar.elements.imageURL.value = data.editing.imageURL;
 }
 newButton.addEventListener('click', function (event) {
   entries.className = 'hidden';
@@ -89,6 +94,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     var newListEntries = journalReturn(data.entries[i]);
     theList.append(newListEntries);
+
   }
 });
 
