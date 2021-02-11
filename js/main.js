@@ -48,6 +48,13 @@ function journalReturn(data) {
   var divColumn2 = document.createElement('div');
   newListItem.appendChild(divColumn2);
   divColumn2.className = 'column-half';
+  var editButton = document.createElement('button');
+  divColumn2.appendChild(editButton);
+  editButton.className = 'edit-button';
+  editButton.setAttribute('type', 'button');
+  var editClass = document.createElement('i');
+  editButton.appendChild(editClass);
+  editClass.className = 'fas fa-pencil-alt';
   var newTitle = document.createElement('h3');
   divColumn2.appendChild(newTitle);
   newTitle.className = 'titles';

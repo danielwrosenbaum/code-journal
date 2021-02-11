@@ -107,7 +107,7 @@ textarea:hover {
   border-radius: 10%;
   border: 1px solid #ddc9b4;
   position: relative;
-  left: 93%;
+  left: 95%;
 }
 
 .new-button:hover {
@@ -143,4 +143,17 @@ textarea:hover {
 
 .hidden {
   display: none;
+}
+
+.edit-button {
+  position: relative;
+  left: 100%;
+  background-color: white;
+  border: none;
+}
+
+.edit-button:active {
+  color: #c17c74;
+  transform: translateY(4px);
+  text-shadow: 0 1px #7a6c5d;
 }
