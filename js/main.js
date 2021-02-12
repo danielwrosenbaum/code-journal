@@ -16,7 +16,6 @@ $changeUrl.addEventListener('input', addUrl);
 
 function theSubmit(event) {
   event.preventDefault();
-  // if (data.editing !== null) {
   var notesVal = $formVar.elements.notes.value;
   var titleVal = $formVar.elements.title.value;
   var picVal = $formVar.elements.imageURL.value;
@@ -27,7 +26,6 @@ function theSubmit(event) {
   $submitObj.id = data.nextEntryId;
   data.entries.unshift($submitObj);
   var newListEntries = journalReturn($submitObj);
-
   theList.prepend(newListEntries);
   data.nextEntryId++;
   $photoUrl.src = 'images/placeholder-image-square.jpg';
@@ -36,10 +34,10 @@ function theSubmit(event) {
   entries.className = 'container entry';
 }
 $formVar.addEventListener('submit', theSubmit);
-var i = 0;
+
 function journalReturn(data) {
   var newListItem = document.createElement('li');
-  newListItem.setAttribute('data-entry-id', i);
+  newListItem.setAttribute('data-entry-id', data.id);
   newListItem.className = 'newEntry row';
   theList.prepend(newListItem);
   var divColumn = document.createElement('div');
@@ -69,18 +67,25 @@ function journalReturn(data) {
   newNotes.textContent = data.notes;
   var $editButton = document.querySelector('.edit-button');
   $editButton.addEventListener('click', editFunction);
-  ++i;
   return newListItem;
 
 }
 function editFunction(event) {
+  var closestId = event.target.closest('li');
+  var idNum = closestId.getAttribute('data-entry-id');
+  var newNumber = Number(idNum);
   entries.className = 'hidden';
   $formVar.className = 'form';
   newEntrytitle.textContent = 'Edit Entry';
   data.editing = data.entries;
-  $formVar.elements.notes.value = data.editing.notes;
-  $formVar.elements.title.value = data.editing.title;
-  $formVar.elements.imageURL.value = data.editing.imageURL;
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].id === newNumber) {
+      $formVar.elements.notes.value = data.editing[i].notes;
+      $formVar.elements.title.value = data.editing[i].title;
+      $formVar.elements.imageURL.value = data.editing[i].imageURL;
+    }
+  }
+
 }
 newButton.addEventListener('click', function (event) {
   entries.className = 'hidden';
