@@ -26,8 +26,13 @@ function theSubmit(event) {
   $submitObj.id = data.nextEntryId;
   data.entries.unshift($submitObj);
   var newListEntries = journalReturn($submitObj);
-  theList.prepend(newListEntries);
-  data.nextEntryId++;
+  if (data.editing !== null) {
+    var editListEntries = journalReturn($submitObj);
+    newListEntries.replaceWith(editListEntries);
+  } else {
+    theList.prepend(newListEntries);
+    data.nextEntryId++;
+  }
   $photoUrl.src = 'images/placeholder-image-square.jpg';
   $formVar.reset();
   $formVar.className = 'form hidden';
@@ -80,6 +85,7 @@ function editFunction(event) {
   data.editing = data.entries;
   for (var i = 0; i < data.entries.length; i++) {
     if (data.entries[i].id === newNumber) {
+      $photoUrl.src = data.editing[i].imageURL;
       $formVar.elements.notes.value = data.editing[i].notes;
       $formVar.elements.title.value = data.editing[i].title;
       $formVar.elements.imageURL.value = data.editing[i].imageURL;
