@@ -30,9 +30,12 @@ function theSubmit(event) {
   newListEntries = journalReturn($submitObj);
   if (data.editing !== null) {
     editListEntries = journalReturn($submitObj);
-    // console.log('edit!', editListEntries);
-    theList.replaceWith(editListEntries, newListEntries);
-    newListEntries.remove();
+    // // console.log('edit!', editListEntries);
+    newListEntries.replaceWith(editListEntries);
+    // // theList.removeChild(newListEntries);
+    // newListEntries.remove();
+    // // theList.replaceChild(editListEntries, newListEntries);
+
   } else {
     // console.log('new!', newListEntries);
     theList.prepend(newListEntries);
@@ -46,6 +49,7 @@ function theSubmit(event) {
 $formVar.addEventListener('submit', theSubmit);
 
 function journalReturn(data) {
+
   var newListItem = document.createElement('li');
   newListItem.setAttribute('data-entry-id', data.id);
   newListItem.className = 'newEntry row';
@@ -80,7 +84,7 @@ function journalReturn(data) {
   return newListItem;
 
 }
-function editFunction(object) {
+function editFunction(event) {
   var closestId = event.target.closest('li');
   var idNum = closestId.getAttribute('data-entry-id');
   var newNumber = Number(idNum);
@@ -110,8 +114,16 @@ cancelButton.addEventListener('click', function (event) {
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     var newListEntries = journalReturn(data.entries[i]);
-    theList.append(newListEntries);
-
+    //  console.log('de: ', data.entries);
+    if (data.editing !== null) {
+      editListEntries = journalReturn(data.entries[i]);
+      // console.log('2edit!', editListEntries);
+      newListEntries.replaceWith(editListEntries);
+      // newListEntries.remove();
+    } else {
+      // console.log('2new!', newListEntries);
+      theList.append(newListEntries);
+    }
   }
 });
 
