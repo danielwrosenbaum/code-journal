@@ -13,6 +13,8 @@ function addUrl(event) {
   $photoUrl.src = event.target.value;
 }
 $changeUrl.addEventListener('input', addUrl);
+var newListEntries;
+var editListEntries;
 
 function theSubmit(event) {
   event.preventDefault();
@@ -25,11 +27,14 @@ function theSubmit(event) {
   $submitObj.title = titleVal;
   $submitObj.id = data.nextEntryId;
   data.entries.unshift($submitObj);
-  var newListEntries = journalReturn($submitObj);
+  newListEntries = journalReturn($submitObj);
   if (data.editing !== null) {
-    var editListEntries = journalReturn($submitObj);
-    newListEntries.replaceWith(editListEntries);
+    editListEntries = journalReturn($submitObj);
+    // console.log('edit!', editListEntries);
+    theList.replaceWith(editListEntries, newListEntries);
+    newListEntries.remove();
   } else {
+    // console.log('new!', newListEntries);
     theList.prepend(newListEntries);
     data.nextEntryId++;
   }
@@ -75,12 +80,11 @@ function journalReturn(data) {
   return newListItem;
 
 }
-function editFunction(event) {
+function editFunction(object) {
   var closestId = event.target.closest('li');
   var idNum = closestId.getAttribute('data-entry-id');
   var newNumber = Number(idNum);
-  entries.className = 'hidden';
-  $formVar.className = 'form';
+
   newEntrytitle.textContent = 'Edit Entry';
   data.editing = data.entries;
   for (var i = 0; i < data.entries.length; i++) {
@@ -91,6 +95,8 @@ function editFunction(event) {
       $formVar.elements.imageURL.value = data.editing[i].imageURL;
     }
   }
+  entries.className = 'hidden';
+  $formVar.className = 'form';
 
 }
 newButton.addEventListener('click', function (event) {
