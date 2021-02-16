@@ -30,14 +30,10 @@ function theSubmit(event) {
   newListEntries = journalReturn($submitObj);
   if (data.editing !== null) {
     editListEntries = journalReturn($submitObj);
-    // // console.log('edit!', editListEntries);
     newListEntries.replaceWith(editListEntries);
-    // // theList.removeChild(newListEntries);
-    // newListEntries.remove();
-    // // theList.replaceChild(editListEntries, newListEntries);
+    newListEntries.remove();
 
   } else {
-    // console.log('new!', newListEntries);
     theList.prepend(newListEntries);
     data.nextEntryId++;
   }
@@ -114,14 +110,11 @@ cancelButton.addEventListener('click', function (event) {
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     var newListEntries = journalReturn(data.entries[i]);
-    //  console.log('de: ', data.entries);
-    if (data.editing !== null) {
+    if (data.entries !== null) {
       editListEntries = journalReturn(data.entries[i]);
-      // console.log('2edit!', editListEntries);
       newListEntries.replaceWith(editListEntries);
-      // newListEntries.remove();
+      newListEntries.remove();
     } else {
-      // console.log('2new!', newListEntries);
       theList.append(newListEntries);
     }
   }
