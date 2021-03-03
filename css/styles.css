@@ -78,11 +78,18 @@ textarea:hover {
   padding: 10px;
 }
 
-.right {
+/* .right {
   position: relative;
   left: 85%;
+} */
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
+.edit-old-button,
 .save-button {
   padding: 10px 15px 10px 15px;
   background-color: #bcac9b;
@@ -92,11 +99,13 @@ textarea:hover {
   border: 1px solid #ddc9b4;
 }
 
+.edit-old-button:hover,
 .save-button:hover {
   background-color: #fcf3ec;
   color: #c17c74;
 }
 
+.edit-old-button:active,
 .save-button:active {
   background-color: #fcf3ec;
   color: #c17c74;

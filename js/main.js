@@ -8,11 +8,16 @@ var newButton = document.querySelector('.new-button');
 var entries = document.querySelector('.entry');
 var cancelButton = document.querySelector('.cancel-button');
 var newEntrytitle = document.querySelector('.newEntry');
+var $buttonContainer = document.querySelector('.button-container');
+var $editOldButton = document.createElement('button');
+var $saveButton = document.querySelector('.save-button');
 
 function addUrl(event) {
   $photoUrl.src = event.target.value;
 }
 $changeUrl.addEventListener('input', addUrl);
+$formVar.addEventListener('submit', theSubmit);
+$editOldButton.addEventListener('click', editEntry);
 var newListEntries;
 var editListEntries;
 
@@ -21,28 +26,29 @@ function theSubmit(event) {
   var notesVal = $formVar.elements.notes.value;
   var titleVal = $formVar.elements.title.value;
   var picVal = $formVar.elements.imageURL.value;
-  var $submitObj = {};
-  $submitObj.imageURL = picVal;
-  $submitObj.notes = notesVal;
-  $submitObj.title = titleVal;
-  $submitObj.id = data.nextEntryId;
+  var $submitObj = {
+    imageURL: picVal,
+    notes: notesVal,
+    title: titleVal,
+    id: data.nextEntryId
+  };
+
   data.entries.unshift($submitObj);
   newListEntries = journalReturn($submitObj);
-  if (data.editing !== null) {
-    editListEntries = journalReturn($submitObj);
-    newListEntries.replaceWith(editListEntries);
-    newListEntries.remove();
+  theList.prepend(newListEntries);
+  data.nextEntryId++;
+  // if (data.editing !== null) {
+  //   editListEntries = journalReturn($submitObj);
+  //   newListEntries.replaceWith(editListEntries);
+  //   newListEntries.remove();
+  // } else {
 
-  } else {
-    theList.prepend(newListEntries);
-    data.nextEntryId++;
-  }
+  // }
   $photoUrl.src = 'images/placeholder-image-square.jpg';
   $formVar.reset();
   $formVar.className = 'form hidden';
   entries.className = 'container entry';
 }
-$formVar.addEventListener('submit', theSubmit);
 
 function journalReturn(data) {
 
@@ -78,13 +84,16 @@ function journalReturn(data) {
   var $editButton = document.querySelector('.edit-button');
   $editButton.addEventListener('click', editFunction);
   return newListItem;
-
 }
+
 function editFunction(event) {
   var closestId = event.target.closest('li');
   var idNum = closestId.getAttribute('data-entry-id');
   var newNumber = Number(idNum);
-
+  $saveButton.className = 'save-button right hidden';
+  $buttonContainer.appendChild($editOldButton);
+  $editOldButton.className = 'edit-old-button';
+  $editOldButton.textContent = 'Edit';
   newEntrytitle.textContent = 'Edit Entry';
   data.editing = data.entries;
   for (var i = 0; i < data.entries.length; i++) {
@@ -97,6 +106,12 @@ function editFunction(event) {
   }
   entries.className = 'hidden';
   $formVar.className = 'form';
+}
+
+function editEntry(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    data.entries.splice(i, 1, data.editing[i]);
+  }
 
 }
 newButton.addEventListener('click', function (event) {
@@ -107,6 +122,7 @@ cancelButton.addEventListener('click', function (event) {
   $formVar.className = 'form hidden';
   entries.className = 'container entry';
 });
+
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     var newListEntries = journalReturn(data.entries[i]);
